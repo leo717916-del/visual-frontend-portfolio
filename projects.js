@@ -16,7 +16,7 @@ window.PORTFOLIO_PROJECTS = [
     description:
       "黑白胶片、暖光、大图网格和快门交互结合，展示摄影风格、套餐和预约路径。",
     link: "https://stilllight-studio.vercel.app/",
-    status: "准备上线",
+    status: "已上线",
     accent: "studio"
   }
 ];
