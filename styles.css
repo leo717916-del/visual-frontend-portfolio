@@ -1,0 +1,371 @@
+:root {
+  --ink: #171717;
+  --paper: #f3efe6;
+  --muted: #6f6a61;
+  --line: rgba(23, 23, 23, 0.14);
+  --deep: #173826;
+  --charcoal: #24211d;
+  --gold: #bd8b4d;
+  --cream: #fff8ec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(23, 23, 23, 0.05) 1px, transparent 1px),
+    linear-gradient(var(--paper), #e7dfd1);
+  background-size: 72px 72px, auto;
+  font-family: "Palatino Linotype", "Songti SC", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px clamp(20px, 5vw, 72px);
+  background: rgba(243, 239, 230, 0.76);
+  border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.brand,
+nav {
+  display: flex;
+  gap: 24px;
+  font-family: Georgia, serif;
+  font-size: 13px;
+}
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.38fr);
+  gap: 6vw;
+  align-items: end;
+  padding: 120px clamp(22px, 6vw, 92px) 80px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 1060px;
+  margin-bottom: 28px;
+  font-size: clamp(50px, 8vw, 116px);
+  line-height: 0.94;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.hero-copy p {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.85;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.button {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: transform 220ms ease, background 220ms ease, color 220ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button.primary {
+  color: var(--cream);
+  background: var(--ink);
+}
+
+.status-panel {
+  padding: 26px;
+  color: var(--cream);
+  background:
+    radial-gradient(circle at 90% 0, rgba(189, 139, 77, 0.36), transparent 34%),
+    var(--charcoal);
+  border-radius: 2px;
+}
+
+.status-panel span {
+  color: var(--gold);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.status-panel strong {
+  display: block;
+  margin: 22px 0 16px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.status-panel p {
+  color: rgba(255, 248, 236, 0.68);
+  line-height: 1.8;
+}
+
+.section-pad {
+  padding: clamp(82px, 12vw, 150px) clamp(22px, 6vw, 92px);
+}
+
+.section-heading {
+  max-width: 880px;
+  margin-bottom: 52px;
+}
+
+.section-heading h2,
+.workflow h2 {
+  font-size: clamp(38px, 6vw, 82px);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.work-card {
+  min-height: 430px;
+  display: grid;
+  align-content: end;
+  padding: 30px;
+  color: var(--cream);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 780ms ease var(--delay), transform 780ms ease var(--delay);
+}
+
+.work-card.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.work-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: var(--deep);
+}
+
+.work-card.forest::before {
+  background:
+    linear-gradient(rgba(16, 49, 30, 0.3), rgba(9, 26, 17, 0.78)),
+    url("../作品1_森林共生落地页/image_20260722_175643.png") center/cover;
+}
+
+.work-card.studio::before {
+  background:
+    linear-gradient(rgba(22, 20, 18, 0.2), rgba(22, 20, 18, 0.84)),
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85") center/cover;
+}
+
+.work-card::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  z-index: -1;
+  border: 1px solid rgba(255, 248, 236, 0.28);
+}
+
+.work-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 42px;
+  color: rgba(255, 248, 236, 0.72);
+  font-size: 12px;
+}
+
+.work-card h3 {
+  margin-bottom: 8px;
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 0.95;
+  font-weight: 500;
+}
+
+.work-card h4 {
+  margin-bottom: 18px;
+  color: var(--gold);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.work-card p {
+  max-width: 650px;
+  color: rgba(255, 248, 236, 0.76);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.work-card a {
+  width: fit-content;
+  margin-top: 22px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+}
+
+.service {
+  background: rgba(255, 248, 236, 0.38);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.service-grid article {
+  min-height: 320px;
+  display: grid;
+  align-content: space-between;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: rgba(255, 248, 236, 0.48);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 760ms ease, transform 760ms ease;
+}
+
+.service-grid article.in,
+.workflow li.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-grid span {
+  color: var(--gold);
+}
+
+.service-grid h3 {
+  margin: 52px 0 14px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.service-grid p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.service-grid strong {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.workflow {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1fr);
+  gap: 7vw;
+}
+
+.workflow ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.workflow li {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 24px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 760ms ease, transform 760ms ease;
+}
+
+.workflow span {
+  color: var(--gold);
+  font-size: 22px;
+}
+
+.workflow p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  nav {
+    display: none;
+  }
+
+  .hero,
+  .works-grid,
+  .service-grid,
+  .workflow {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    align-items: start;
+    padding-top: 100px;
+  }
+
+  .work-card {
+    min-height: 380px;
+  }
+
+  .workflow li {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
