@@ -4,6 +4,8 @@
 
 ## 使用方式
 
+- 线上地址：https://visual-frontend-portfolio.vercel.app/
+- GitHub 仓库：https://github.com/leo717916-del/visual-frontend-portfolio
 - 页面结构：`index.html`
 - 视觉样式：`styles.css`
 - 作品数据：`projects.js`
@@ -23,4 +25,3 @@
 - 客户聊天中快速展示能力
 - 个人主页/签名链接
 - 后续作品集总入口
-
